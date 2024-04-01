@@ -24,6 +24,9 @@ console.log(nome,email)
                 <Text>
                     Email:
                 </Text>
+                <Text>
+                    Texto:
+                </Text>
                 <TextInput
                     style={Styles.input}
                     placeholder='Digite seu nome'
