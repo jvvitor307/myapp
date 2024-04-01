@@ -1,24 +1,53 @@
-import React from 'react';
-import { View, Text } from 'react-native';
-import InputData from './components/Inputdata';
-import Butao from './components/Butao';
+import React, { useEffect } from 'react';
+import { View, Text, TextInput, Button } from 'react-native';
 import { Styles } from './Styles';
 
-const formulario = ['nome', 'cpf', 'email', 'cep'];
 
 export default function Home() {
+const [nome, setNome] = React.useState('');
+const [email, setEmail] = React.useState('');
+
+
+
+
+const handleSubmit = () => {
+console.log(nome,email)
+}
+
     return (
-        <View>
-            <Text style={Styles.title}>HOME</Text>
-            {
-                formulario.map(item => (
-                    <InputData 
-                    key={item}
-                    placeHolder={item}
-                    />
-                ))
-            }
-            <Butao/>   
+        <View style={Styles.container}>
+
+            <View>
+                <Text style={Styles.title}>Cadastro de Usuários</Text>
+            </View>
+            <View style={Styles.fittotext}>
+                <Text>
+                    Email:
+                </Text>
+                <TextInput
+                    style={Styles.input}
+                    placeholder='Digite seu nome'
+                    onChangeText={setNome}
+                    value={nome}
+                />
+            </View>
+            <View style={Styles.fittotext}>
+                <Text>
+                    Email:
+                </Text>
+                <TextInput
+                    style={Styles.input}
+                    placeholder='Digite seu email'
+                    onChangeText={setEmail}
+                    value={email}
+                />
+            </View>
+            <Button title = 'enviar' onPress= {handleSubmit}
+            />
+
+            <Text>Nome: {nome}</Text>
+            <Text>Email: {email}</Text>
+
         </View>
     );
 }
