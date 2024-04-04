@@ -1,17 +1,19 @@
 import React, { useEffect } from 'react';
 import { View, Text, TextInput, Button } from 'react-native';
 import { Styles } from './Styles';
+import { useNavigation } from '@react-navigation/native';
 
 
 export default function Home() {
 const [nome, setNome] = React.useState('');
 const [email, setEmail] = React.useState('');
-
+const navigation = useNavigation();
 
 
 
 const handleSubmit = () => {
 console.log(nome,email)
+navigation.navigate('Config',{nome,email});
 }
 
     return (
@@ -22,10 +24,7 @@ console.log(nome,email)
             </View>
             <View style={Styles.fittotext}>
                 <Text>
-                    Email:
-                </Text>
-                <Text>
-                    Texto:
+                    Nome:
                 </Text>
                 <TextInput
                     style={Styles.input}
